@@ -1,0 +1,15 @@
+* {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+}
+
+body {
+  background-color: rgb(255, 231, 200);
+}
+
+#saludo {
+  color: rgb(124, 168, 207);
+}
