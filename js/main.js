@@ -25,6 +25,8 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       localStorage.setItem("registroUsuario", JSON.stringify(datosUsuario));
+      saludo.textContent = `Bienvenido a nuesta pagina!`;
+      texoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
 
       //sweet
       Swal.fire({
@@ -45,22 +47,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Eliminar Datos Del Usuario 🚀
-  botonEliminar.addEventListener("click", function () {
-    localStorage.removeItem("registroUsuario");
+  const nombreGuardado = localStorage.getItem("registroUsuario");
 
-    //sweet
-    Swal.fire({
-      icon: "warning",
-      title: "¡Registro Borrado!",
-      text: "Tus datos han sido borrados exitosamente!",
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
+  if (nombreGuardado) {
+    const usuarioRecuperado = JSON.parse(nombreGuardado);
+    saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
+    texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
+  }
+
+  // Eliminar Datos Del Usuario 🚀
+  if (botonEliminar) {
+    botonEliminar.addEventListener("click", function () {
+      localStorage.removeItem("registroUsuario");
+      saludo.textContent = `Bienvenido!`;
+      texoInicio.textContent = `Porfavor registrese!`;
+
+      //sweet
+      Swal.fire({
+        icon: "warning",
+        title: "¡Registro Borrado!",
+        text: "Tus datos han sido borrados exitosamente!",
+        toast: true,
+        position: "top-end",
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+      });
     });
-  });
+  }
 });
 
 // Validar 🚀
@@ -95,7 +109,7 @@ function validarInputs(nombre, apellido, email) {
     return false;
   }
   const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailValid.test(email)) {
+  if (!emailValid.test(email) || !email.includes("@gmail.com")) {
     Swal.fire({
       icon: "error",
       title: "¡Email Inválido!",
