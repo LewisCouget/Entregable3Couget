@@ -18,13 +18,17 @@
         <h1 id="saludo">Bienvenido!</h1>
         <p id="textoInicio">Porfavor registrese!</p>
         <!--  action="carrito.html"  method="get"-->
-        <form>
-          <label> <input type="text" placeholder="Nombre" /></label><br />
-          <label> <input type="text" placeholder="Apellido" /></label><br />
-          <label> <input type="email" placeholder="E-mail" /></label><br />
-          <button id="botonGuardar" type="button">Registrarse</button>
-          <button id="botonEliminar" type="button">Eliminar Registro</button>
-        </form>
+        <div id="inputsBotones">
+          <form>
+            <label> <input type="text" placeholder="Nombre" /></label><br />
+            <label> <input type="text" placeholder="Apellido" /></label><br />
+            <label> <input type="email" placeholder="E-mail" /></label><br />
+            <button id="botonGuardar" type="button">Registrarse</button>
+          </form>
+        </div>
+        <button id="botonEliminar" type="button" style="display: none">
+          Eliminar Registro
+        </button>
       </div>
 
       <div id="products"></div>

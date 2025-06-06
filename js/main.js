@@ -1,13 +1,31 @@
 document.addEventListener("DOMContentLoaded", function () {
+  // Llamar a products.json
+  let productos = [];
+  fetch("../data/products.json")
+    .then((resp) => resp.json())
+    .then((data) => {
+      productos = data;
+      addProduct(productos);
+    });
+
   const saludo = document.getElementById("saludo");
   const texoInicio = document.getElementById("textoInicio");
+  const inputsBotones = document.getElementById("inputsBotones");
   const botonGuardar = document.getElementById("botonGuardar");
   const botonEliminar = document.getElementById("botonEliminar");
   const nombreInput = document.querySelector('input[placeholder="Nombre"]');
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
-  // Guardar Datos Del Usuario
 
+  /* function refreshInterface(estaRegistrado) {
+    if (estaRegistrado) {
+      const usuarioRegistrado = JSON.parse(
+        localStorage.getItem("registroUsuario")
+      );
+    }
+  } */
+
+  // Guardar Datos Del Usuario
   if (botonGuardar) {
     botonGuardar.addEventListener("click", function () {
       const nombre = nombreInput.value;
@@ -17,6 +35,9 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!validarInputs(nombre, apellido, email)) {
         return;
       }
+
+      inputsBotones.style.display = "none";
+      botonEliminar.style.display = "block";
 
       const datosUsuario = {
         nombre: nombre,
@@ -46,13 +67,20 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.value = "";
     });
   }
+  // Guardar Datos Del Usuario
 
+  // Recuperar el dato del usuario y mostrar u ocultar
   const nombreGuardado = localStorage.getItem("registroUsuario");
 
   if (nombreGuardado) {
     const usuarioRecuperado = JSON.parse(nombreGuardado);
     saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
     texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
+    inputsBotones.style.display = "none";
+    botonEliminar.style.display = "block";
+  } else {
+    inputsBotones.style.display = "block";
+    botonEliminar.style.display = "none";
   }
 
   // Eliminar Datos Del Usuario 🚀
@@ -61,6 +89,8 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.removeItem("registroUsuario");
       saludo.textContent = `Bienvenido!`;
       texoInicio.textContent = `Porfavor registrese!`;
+      inputsBotones.style.display = "block";
+      botonEliminar.style.display = "none";
 
       //sweet
       Swal.fire({
@@ -108,8 +138,8 @@ function validarInputs(nombre, apellido, email) {
     });
     return false;
   }
-  const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailValid.test(email) || !email.includes("@gmail.com")) {
+  /* const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; */
+  if (!email.includes("@gmail.com")) {
     Swal.fire({
       icon: "error",
       title: "¡Email Inválido!",
