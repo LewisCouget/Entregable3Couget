@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Llamar a products.json
-  let productos = [];
+  /* let productos = [];
   fetch("../data/products.json")
     .then((resp) => resp.json())
     .then((data) => {
       productos = data;
       addProduct(productos);
-    });
+    }); */
 
   const saludo = document.getElementById("saludo");
   const texoInicio = document.getElementById("textoInicio");
@@ -17,15 +17,17 @@ document.addEventListener("DOMContentLoaded", function () {
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
 
-  /* function refreshInterface(estaRegistrado) {
-    if (estaRegistrado) {
-      const usuarioRegistrado = JSON.parse(
-        localStorage.getItem("registroUsuario")
-      );
-    }
-  } */
+  function inputOff() {
+    inputsBotones.style.display = "none";
+    botonEliminar.style.display = "block";
+  }
 
-  // Guardar Datos Del Usuario
+  function inputOn() {
+    inputsBotones.style.display = "block";
+    botonEliminar.style.display = "none";
+  }
+
+  // Guardar Datos Del Usuario🚀
   if (botonGuardar) {
     botonGuardar.addEventListener("click", function () {
       const nombre = nombreInput.value;
@@ -36,8 +38,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      inputsBotones.style.display = "none";
-      botonEliminar.style.display = "block";
+      // inputsBotones.style.display = "none";
+      // botonEliminar.style.display = "block";
+      inputOff();
 
       const datosUsuario = {
         nombre: nombre,
@@ -67,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function () {
       emailInput.value = "";
     });
   }
-  // Guardar Datos Del Usuario
+  // Guardar Datos Del Usuario🚀
 
   // Recuperar el dato del usuario y mostrar u ocultar
   const nombreGuardado = localStorage.getItem("registroUsuario");
@@ -76,11 +79,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const usuarioRecuperado = JSON.parse(nombreGuardado);
     saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
     texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
-    inputsBotones.style.display = "none";
-    botonEliminar.style.display = "block";
+    // inputsBotones.style.display = "none";
+    // botonEliminar.style.display = "block";
+    inputOff();
   } else {
-    inputsBotones.style.display = "block";
-    botonEliminar.style.display = "none";
+    // inputsBotones.style.display = "block";
+    // botonEliminar.style.display = "none";
+    inputOn();
   }
 
   // Eliminar Datos Del Usuario 🚀
@@ -89,8 +94,9 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.removeItem("registroUsuario");
       saludo.textContent = `Bienvenido!`;
       texoInicio.textContent = `Porfavor registrese!`;
-      inputsBotones.style.display = "block";
-      botonEliminar.style.display = "none";
+      // inputsBotones.style.display = "block";
+      // botonEliminar.style.display = "none";
+      inputOn();
 
       //sweet
       Swal.fire({
@@ -105,6 +111,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+  // Eliminar Datos Del Usuario 🚀
 });
 
 // Validar 🚀
