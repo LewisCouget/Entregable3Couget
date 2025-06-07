@@ -7,27 +7,37 @@
 }
 
 body {
-  background-color: rgb(255, 231, 200);
+  background-color: rgb(99, 99, 99);
 }
 
 #saludo {
   color: rgb(124, 168, 207);
 }
 
-.cardsGrid {
+#cardsGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2rem;
+  padding: 1rem;
   max-width: 1900px;
-  background-color: aliceblue;
+  margin: 0 auto;
+  background-color: rgb(39, 39, 39);
 }
 
 .card {
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(255, 21, 21, 0.1);
 }
 
 .card-img-top {
-  max-height: 20rem;
+  max-height: 100%;
+  max-width: 20rem;
+  height: auto;
+  object-fit: cover;
 }
 
 .card-body {

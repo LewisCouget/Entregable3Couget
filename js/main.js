@@ -62,10 +62,10 @@ function getAllProducts() {
 
 //Añadir cartas🚀
 function addProduct(data) {
-  const cardsContainer = document.querySelector(".cardsGrid");
+  const cardsContainer = document.getElementById("cardsGrid");
   cardsContainer.innerHTML = "";
   data.forEach((product) => {
-    const cardHTML = `<div class="card" style="width: 18rem;">
+    const cardHTML = `<div class="card" style="max-width: 100%">
   <img src="${product.img}" class="card-img-top" alt="${product.name}">
   <div class="card-body">
     <h5 class="card-title">${product.name}</h5>
@@ -76,6 +76,17 @@ function addProduct(data) {
     cardsContainer.innerHTML += cardHTML;
   });
 }
+
+function seeProducts(nombreGuardado) {
+  if (nombreGuardado) {
+    showProducts.addEventListener("click", function () {
+      getAllProducts();
+    });
+  } else {
+    inputOn();
+  }
+}
+
 //Añadir cartas🚀
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -84,20 +95,34 @@ document.addEventListener("DOMContentLoaded", function () {
   const inputsBotones = document.getElementById("inputsBotones");
   const botonGuardar = document.getElementById("botonGuardar");
   const botonEliminar = document.getElementById("botonEliminar");
+  const showProducts = document.getElementById("showProducts");
   const nombreInput = document.querySelector('input[placeholder="Nombre"]');
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
+  const cardsGrid = document.getElementById("cardsGrid");
 
   // Ocultar o mostrar inputs y botones🚀
   function inputOff() {
-    inputsBotones.style.display = "none";
-    botonEliminar.style.display = "block";
+    if (inputsBotones) inputsBotones.style.display = "none";
+    if (botonEliminar) botonEliminar.style.display = "block";
+    if (showProducts) showProducts.style.display = "block";
+    if (cardsGrid) cardsGrid.style.display = "none";
   }
 
   function inputOn() {
-    inputsBotones.style.display = "block";
-    botonEliminar.style.display = "none";
+    if (inputsBotones) inputsBotones.style.display = "block";
+    if (botonEliminar) botonEliminar.style.display = "none";
+    if (showProducts) showProducts.style.display = "none";
+    if (cardsGrid) cardsGrid.style.display = "none";
   }
+
+  if (showProducts) {
+    showProducts.addEventListener("click", function () {
+      if (cardsGrid) cardsGrid.style.display = "grid";
+      getAllProducts();
+    });
+  }
+
   // Ocultar o mostrar inputs y botones🚀
 
   // Guardar Datos Del Usuario🚀
@@ -121,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.setItem("registroUsuario", JSON.stringify(datosUsuario));
       saludo.textContent = `Bienvenido a nuesta pagina!`;
       texoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
-
+      inputOff();
       //sweet
       Swal.fire({
         icon: "success",
@@ -146,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const nombreGuardado = localStorage.getItem("registroUsuario");
 
   if (nombreGuardado) {
+    seeProducts(nombreGuardado);
     const usuarioRecuperado = JSON.parse(nombreGuardado);
     saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
     texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
@@ -177,5 +203,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Eliminar Datos Del Usuario 🚀
-  getAllProducts();
 });
