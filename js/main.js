@@ -1,13 +1,84 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Llamar a products.json
-  /* let productos = [];
-  fetch("../data/products.json")
+// Validar 🚀
+function validarInputs(nombre, apellido, email) {
+  const nameSurnameValid = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+$/;
+  if (nombre.trim() === "" || apellido.trim() === "" || email.trim() === "") {
+    Swal.fire({
+      icon: "error",
+      title: "¡Campos Incompletos!",
+      text: "Por favor, completa todos los campos para registrarte.",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+    return false;
+  } else if (
+    !nameSurnameValid.test(nombre) ||
+    !nameSurnameValid.test(apellido)
+  ) {
+    Swal.fire({
+      icon: "error",
+      title: "¡Error de tipos!",
+      text: "El nombre solo puede contener letras, espacios y guiones.",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+    return false;
+  }
+
+  if (!email.includes("@gmail.com")) {
+    Swal.fire({
+      icon: "error",
+      title: "¡Email Inválido!",
+      text: "Por favor, ingresa una dirección de correo electrónico válida.",
+      toast: true,
+      position: "top-end",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+    return false;
+  }
+  return true;
+}
+
+// Llamar a products.json🚀
+const productList = "../data/products.json";
+
+let productos = [];
+function getAllProducts() {
+  fetch(productList)
     .then((resp) => resp.json())
     .then((data) => {
       productos = data;
       addProduct(productos);
-    }); */
+    });
+}
+// Llamar a products.json🚀
 
+//Añadir cartas🚀
+function addProduct(data) {
+  const cardsContainer = document.querySelector(".cardsGrid");
+  cardsContainer.innerHTML = "";
+  data.forEach((product) => {
+    const cardHTML = `<div class="card" style="width: 18rem;">
+  <img src="${product.img}" class="card-img-top" alt="${product.name}">
+  <div class="card-body">
+    <h5 class="card-title">${product.name}</h5>
+    <p class="card-text">Categoria: ${product.category}</p>
+    <a href="#" class="btn btn-primary">Agregar</a>
+  </div>
+</div>`;
+    cardsContainer.innerHTML += cardHTML;
+  });
+}
+//Añadir cartas🚀
+
+document.addEventListener("DOMContentLoaded", function () {
   const saludo = document.getElementById("saludo");
   const texoInicio = document.getElementById("textoInicio");
   const inputsBotones = document.getElementById("inputsBotones");
@@ -17,6 +88,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
 
+  // Ocultar o mostrar inputs y botones🚀
   function inputOff() {
     inputsBotones.style.display = "none";
     botonEliminar.style.display = "block";
@@ -26,6 +98,7 @@ document.addEventListener("DOMContentLoaded", function () {
     inputsBotones.style.display = "block";
     botonEliminar.style.display = "none";
   }
+  // Ocultar o mostrar inputs y botones🚀
 
   // Guardar Datos Del Usuario🚀
   if (botonGuardar) {
@@ -37,9 +110,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!validarInputs(nombre, apellido, email)) {
         return;
       }
-
-      // inputsBotones.style.display = "none";
-      // botonEliminar.style.display = "block";
       inputOff();
 
       const datosUsuario = {
@@ -72,21 +142,18 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // Guardar Datos Del Usuario🚀
 
-  // Recuperar el dato del usuario y mostrar u ocultar
+  // Recuperar el dato del usuario 🚀
   const nombreGuardado = localStorage.getItem("registroUsuario");
 
   if (nombreGuardado) {
     const usuarioRecuperado = JSON.parse(nombreGuardado);
     saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
     texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
-    // inputsBotones.style.display = "none";
-    // botonEliminar.style.display = "block";
     inputOff();
   } else {
-    // inputsBotones.style.display = "block";
-    // botonEliminar.style.display = "none";
     inputOn();
   }
+  // Recuperar el dato del usuario 🚀
 
   // Eliminar Datos Del Usuario 🚀
   if (botonEliminar) {
@@ -94,8 +161,6 @@ document.addEventListener("DOMContentLoaded", function () {
       localStorage.removeItem("registroUsuario");
       saludo.textContent = `Bienvenido!`;
       texoInicio.textContent = `Porfavor registrese!`;
-      // inputsBotones.style.display = "block";
-      // botonEliminar.style.display = "none";
       inputOn();
 
       //sweet
@@ -112,52 +177,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
   // Eliminar Datos Del Usuario 🚀
+  getAllProducts();
 });
-
-// Validar 🚀
-function validarInputs(nombre, apellido, email) {
-  const nameSurnameValid = /^[a-zA-ZáéíóúÁÉÍÓÚñÑüÜ\s-]+$/;
-  if (nombre.trim() === "" || apellido.trim() === "" || email.trim() === "") {
-    Swal.fire({
-      icon: "error",
-      title: "¡Campos Incompletos!",
-      text: "Por favor, completa todos los campos para registrarte.",
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-    });
-    return false;
-  } else if (
-    !nameSurnameValid.test(nombre) ||
-    !nameSurnameValid.test(apellido)
-  ) {
-    Swal.fire({
-      icon: "error",
-      title: "¡Error de tipos!",
-      text: "El nombre solo puede contener letras, espacios y guiones.",
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-    });
-    return false;
-  }
-  /* const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; */
-  if (!email.includes("@gmail.com")) {
-    Swal.fire({
-      icon: "error",
-      title: "¡Email Inválido!",
-      text: "Por favor, ingresa una dirección de correo electrónico válida.",
-      toast: true,
-      position: "top-end",
-      showConfirmButton: false,
-      timer: 3000,
-      timerProgressBar: true,
-    });
-    return false;
-  }
-  return true;
-}

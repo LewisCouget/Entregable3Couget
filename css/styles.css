@@ -13,3 +13,23 @@ body {
 #saludo {
   color: rgb(124, 168, 207);
 }
+
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1900px;
+  background-color: aliceblue;
+}
+
+.card {
+  padding: 2rem;
+}
+
+.card-img-top {
+  max-height: 20rem;
+}
+
+.card-body {
+  align-content: center;
+}
