@@ -96,6 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const botonGuardar = document.getElementById("botonGuardar");
   const botonEliminar = document.getElementById("botonEliminar");
   const showProducts = document.getElementById("showProducts");
+  const carShop = document.getElementById("carShop");
   const nombreInput = document.querySelector('input[placeholder="Nombre"]');
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
@@ -106,6 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputsBotones) inputsBotones.style.display = "none";
     if (botonEliminar) botonEliminar.style.display = "block";
     if (showProducts) showProducts.style.display = "block";
+    if (carShop) carShop.style.display = "block";
     if (cardsGrid) cardsGrid.style.display = "none";
   }
 
@@ -113,6 +115,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (inputsBotones) inputsBotones.style.display = "block";
     if (botonEliminar) botonEliminar.style.display = "none";
     if (showProducts) showProducts.style.display = "none";
+    if (carShop) carShop.style.display = "none";
     if (cardsGrid) cardsGrid.style.display = "none";
   }
 
@@ -123,10 +126,15 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Ocultar o mostrar inputs y botones🚀
-
-  // Guardar Datos Del Usuario🚀
+  if (carShop) {
+    carShop.addEventListener("click", function () {
+      window.location.href = "carrito.html";
+    });
+  }
   if (botonGuardar) {
+    // Ocultar o mostrar inputs y botones🚀
+
+    // Guardar Datos Del Usuario🚀
     botonGuardar.addEventListener("click", function () {
       const nombre = nombreInput.value;
       const apellido = apellidoInput.value;
