@@ -121,8 +121,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (showProducts) {
     showProducts.addEventListener("click", function () {
-      if (cardsGrid) cardsGrid.style.display = "grid";
-      getAllProducts();
+      if (cardsGrid.style.display === "none") {
+        cardsGrid.style.display = "grid";
+        getAllProducts();
+        showProducts.textContent = "Ocultar Productos";
+      } else {
+        cardsGrid.style.display = "none";
+        showProducts.textContent = "Mostrar Productos";
+      }
     });
   }
 
