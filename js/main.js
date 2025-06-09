@@ -70,12 +70,29 @@ function addProduct(data) {
   <div class="card-body">
     <h5 class="card-title">${product.name}</h5>
     <p class="card-text">Categoria: ${product.category}</p>
-    <a href="#" class="btn btn-primary">Agregar</a>
+    <button onclick="agregarProductos(${product.id}) "class="botonCarrito">Agregar</a>
   </div>
 </div>`;
     cardsContainer.innerHTML += cardHTML;
   });
 }
+
+const carrito = [];
+// Agregar productos al carrito🚀
+function agregarProductos(id) {
+  const productoEnCatalogo = productos.find((producto) => producto.id === id);
+
+  if (productoEnCatalogo) {
+    const productoExistenteEnCarrito = carrito.find(
+      (itemDelCarrito) => itemDelCarrito.id === id
+    );
+    if (productoExistenteEnCarrito) {
+      productoExistenteEnCarrito.cantidad++;
+    } else carrito.push({ ...productoEnCatalogo, quantity: 1 });
+  }
+  localStorage.setItem("ListaCarrito", JSON.stringify(carrito));
+}
+// Agregar productos al carrito🚀
 
 function seeProducts(nombreGuardado) {
   if (nombreGuardado) {
@@ -137,10 +154,10 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "carrito.html";
     });
   }
-  if (botonGuardar) {
-    // Ocultar o mostrar inputs y botones🚀
+  // Ocultar o mostrar inputs y botones🚀
 
-    // Guardar Datos Del Usuario🚀
+  // Guardar Datos Del Usuario🚀
+  if (botonGuardar) {
     botonGuardar.addEventListener("click", function () {
       const nombre = nombreInput.value;
       const apellido = apellidoInput.value;

@@ -43,3 +43,10 @@ body {
 .card-body {
   align-content: center;
 }
+
+.botonCarrito {
+  background-color: rgb(48, 48, 255);
+  color: aliceblue;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
