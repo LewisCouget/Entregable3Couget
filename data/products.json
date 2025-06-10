@@ -4,6 +4,7 @@
         "name": "Reloj CASE",
         "price": 100,
         "stock": 22,
+        "cantidad":1,
         "category": "Relojes",
         "img": "https://m.media-amazon.com/images/I/415dAS+56pL._AC_SY580_.jpg"  
     },
@@ -12,6 +13,7 @@
         "name": "Laptop HP",
         "price": 1500,
         "stock": 51,
+        "cantidad":1,
         "category": "Laptops",
         "img": "https://www.apple.com/newsroom/images/product/mac/standard/Apple_16-inch-MacBook-Pro_111319_big.jpg.large.jpg"
     },
@@ -20,6 +22,7 @@
         "name": "Mouse Generic",
         "price": 50,
         "stock": 10,
+        "cantidad":1,
         "category": "Mouses",
         "img":"https://pvl.com.bo/wp-content/uploads/2020/01/910005439-MOUSE-GAMER-PRO_TITULO.jpg"
     },
@@ -28,6 +31,7 @@
         "name": "Teclado Razeak",
         "price": 80,
         "stock": 15,
+        "cantidad":1,
         "category": "Teclados",
         "img": "https://f.fcdn.app/imgs/2508b6/www.xuruguay.com.uy/xuruuy/590e/original/catalogo/8116590387538116590387532/460x460/teclado-huntsman-mini-optico-60-gamer-razer-teclado-huntsman-mini-optico-60-gamer-razer.jpg"
     },
@@ -36,6 +40,7 @@
         "name": "Monitor ASUS",
         "price": 200,
         "stock": 30,
+        "cantidad":1,
         "category": "Monitores",
         "img":"https://thotcomputacion.com.uy/wp-content/uploads/2024/04/6147_1_556e1a56291b455e86ea17b90e728078.jpg"
     },
@@ -44,6 +49,7 @@
         "name": "Mousepad Apple",
         "price": 30,
         "stock": 20,
+        "cantidad":1,
         "category": "Mousepads",
         "img":"https://netpc.uy/wp-content/uploads/2020/10/1-43-2.jpg"
     },
@@ -52,6 +58,7 @@
         "name": "Cargador ASUS",
         "price": 70,
         "stock": 12,
+        "cantidad":1,
         "category": "Cargadores",
         "img": "https://m.media-amazon.com/images/I/61lEfc2j8XL._AC_SL1500_.jpg"
     },
@@ -60,6 +67,7 @@
         "name":"Fuente ASUS",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Fuentes",
         "img":"https://thotcomputacion.com.uy/wp-content/uploads/2024/05/6279_1_d4014eba4ff642bbb7db1336c3569b56-600x600.jpg"
     },
@@ -68,6 +76,7 @@
         "name": "Placa Madre ASUS",
         "price": 120,
         "stock": 24,
+        "cantidad":1,
         "category": "Placas Madres",
         "img":"https://www.asus.com/media/odin/websites/MX/News/uaungcveygcntorl/hero.jpg"
     },
@@ -76,6 +85,7 @@
         "name": "Tarjeta Grafica ASUS",
         "price": 180,
         "stock": 36,
+        "cantidad":1,
         "category": "Tarjetas Graficas",
         "img":"https://http2.mlstatic.com/D_NQ_NP_992798-MLU69846666600_062023-O.webp"
     },
@@ -84,6 +94,7 @@
         "name": "Tarjeta Grafica NVIDIA",
         "price": 100,
         "stock": 40,
+        "cantidad":1,
         "category": "Tarjetas Graficas",
         "img":"https://digitalworld.com.uy/wp-content/uploads/2022/08/Dell-t5810-xeon-e5-16gb-256ssd-p5000-w10p-1.jpg"
     },
@@ -92,6 +103,7 @@
         "name": "Reloj Cassio",
         "price": 150,
         "stock": 10,
+        "cantidad":1,
         "category": "Relojes",
         "img":"https://f.fcdn.app/imgs/a14879/www.tiendacasio.sira.uy/casiuy/3e1f/original/catalogo/MTP-B145D_-2A2VDF_1/1500-1500/reloj-casio-acero-inoxidable-hombre-mtp-b145d-2a2vdf.jpg"
     },
@@ -100,6 +112,7 @@
         "name": "Mouse Gamer",
         "price": 100,
         "stock": 20,
+        "cantidad":1,
         "category": "Mouses",
         "img":"https://f.fcdn.app/imgs/3a982a/www.market.com.uy/markuy/3086/original/catalogo/6971469297017_1/1920-1200/mouse-gamer-rgb-t-wolf-v2-v01.jpg"
     },
@@ -108,6 +121,7 @@
         "name": "Teclado Gamer",
         "price": 120,
         "stock": 30,
+        "cantidad":1,
         "category": "Teclados",
         "img":"https://lionsrl.com.uy/wp-content/uploads/2022/06/gamer-tec-1200x1200.jpg"
     },
@@ -116,6 +130,7 @@
         "name": "Monitor Gigabyte",
         "price": 250,
         "stock": 15,
+        "cantidad":1,
         "category": "Monitores",
         "img":"https://f.fcdn.app/imgs/c038b1/decompras.bbva.com.uy/daewuy/12b0/original/catalogo/G2790VX_G2790VX_2/1500-1500/monitor-gamer-27-aoc-monitor-gamer-27-aoc.jpg"
     },
@@ -124,6 +139,7 @@
         "name": "Mousepad Gamer",
         "price": 50,
         "stock": 25,
+        "cantidad":1,
         "category": "Mousepads",
         "img":"https://cdn.luna.com.uy/districomp.com.uy/files/tmp/compressed/normal/x569f5o68c3gz9uqx5ym.jpg"
     },
@@ -132,6 +148,7 @@
         "name": "Cargador Lenovo",
         "price": 70,
         "stock": 18,
+        "cantidad":1,
         "category": "Cargadores",
         "img":"https://f.fcdn.app/imgs/e91ca5/artcomputer.com.uy/artcuy/54d0/original/catalogo/LEUSBC65W_LEUSBC65W_1/2000-2000/cargador-lenovo-usb-c-original-65w-cargador-lenovo-usb-c-original-65w.jpg"
     },
@@ -140,6 +157,7 @@
         "name": "Laptop ASUS",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Laptops",
         "img":"https://www.asus.com/media/Odin/Websites/global/ProductLine/20200824120814.jpg"
     },
@@ -148,6 +166,7 @@
         "name": "Laptop Apple",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Laptops",
         "img":"https://ecom.websynopsis.com/storage/files/product/6637d84c01744.webp"
     },
@@ -156,6 +175,7 @@
         "name": "Reloj Rolex",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Relojes",
         "img":"https://m.media-amazon.com/images/I/61uGF7SoWZL._AC_UY1000_.jpg"
     },
@@ -164,6 +184,7 @@
         "name": "Placa Madre Gigabyte",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Placas Madres",
         "img":"https://http2.mlstatic.com/D_NQ_NP_609484-MLU73512151855_122023-O.webp"
     },
@@ -172,6 +193,7 @@
         "name": "Fuente Crosair",
         "price": 50,
         "stock": 18,
+        "cantidad":1,
         "category": "Fuentes",
         "img":"https://m.media-amazon.com/images/I/41snmjSK-wL.jpg"
     }

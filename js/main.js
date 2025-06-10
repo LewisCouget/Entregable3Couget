@@ -88,7 +88,7 @@ function agregarProductos(id) {
     );
     if (productoExistenteEnCarrito) {
       productoExistenteEnCarrito.cantidad++;
-    } else carrito.push({ ...productoEnCatalogo, quantity: 1 });
+    } else carrito.push({ ...productoEnCatalogo, cantidad: 1 });
   }
   localStorage.setItem("ListaCarrito", JSON.stringify(carrito));
 }
@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
   const cardsGrid = document.getElementById("cardsGrid");
+
+  navBar();
 
   // Ocultar o mostrar inputs y botones🚀
   function inputOff() {

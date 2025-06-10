@@ -13,13 +13,42 @@
     <link rel="stylesheet" href="css/stylesCarShop.css" />
   </head>
   <body>
-    <h1 class="titulo">Carrito</h1>
+    <div id="navBarContainer" class="navBar"></div>
+
+    <div id="listProduct" class="cartShop container mt-4">
+      <h1 class="titulo">Carrito</h1>
+
+      <ul id="listaDeCarrito" class="list-group"></ul>
+
+      <p
+        id="empty-cart-message"
+        class="text-muted text-center mt-3"
+        style="display: none"
+      >
+        Tu carrito está vacío.
+      </p>
+
+      <div class="mt-4 text-end">
+        <h3>Total: $USD<span id="cart-total">0.00</span></h3>
+        <button id="clear-cart-btn" class="btn btn-danger me-2">
+          Vaciar Carrito
+        </button>
+        <button id="checkout-btn" class="btn btn-success">
+          Finalizar Compra
+        </button>
+        <a href="index.html" class="btn btn-secondary mt-3"
+          >Volver al Catálogo</a
+        >
+      </div>
+    </div>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
       crossorigin="anonymous"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/carShop.js"></script>
+    <script src="js/navBar.js"></script>
+    <script src="js/cartShop.js"></script>
   </body>
 </html>
