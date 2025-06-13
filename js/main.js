@@ -96,7 +96,7 @@ function agregarProductos(id) {
 
 function seeProducts(nombreGuardado) {
   if (nombreGuardado) {
-    showProducts.addEventListener("click", function () {
+    showProductsBtn.addEventListener("click", function () {
       getAllProducts();
     });
   } else {
@@ -108,12 +108,12 @@ function seeProducts(nombreGuardado) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const saludo = document.getElementById("saludo");
-  const texoInicio = document.getElementById("textoInicio");
+  const textoInicio = document.getElementById("textoInicio");
   const inputsBotones = document.getElementById("inputsBotones");
   const botonGuardar = document.getElementById("botonGuardar");
   const botonEliminar = document.getElementById("botonEliminar");
-  const showProducts = document.getElementById("showProducts");
-  const carShop = document.getElementById("carShop");
+  const showProductsBtn = document.getElementById("showProductsBtn");
+  const carShopBtn = document.getElementById("carShopBtn");
   const nombreInput = document.querySelector('input[placeholder="Nombre"]');
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
@@ -125,34 +125,34 @@ document.addEventListener("DOMContentLoaded", function () {
   function inputOff() {
     if (inputsBotones) inputsBotones.style.display = "none";
     if (botonEliminar) botonEliminar.style.display = "block";
-    if (showProducts) showProducts.style.display = "block";
-    if (carShop) carShop.style.display = "block";
+    if (showProductsBtn) showProductsBtn.style.display = "block";
+    if (carShopBtn) carShopBtn.style.display = "block";
     if (cardsGrid) cardsGrid.style.display = "none";
   }
 
   function inputOn() {
     if (inputsBotones) inputsBotones.style.display = "block";
     if (botonEliminar) botonEliminar.style.display = "none";
-    if (showProducts) showProducts.style.display = "none";
-    if (carShop) carShop.style.display = "none";
+    if (showProductsBtn) showProductsBtn.style.display = "none";
+    if (carShopBtn) carShopBtn.style.display = "none";
     if (cardsGrid) cardsGrid.style.display = "none";
   }
 
-  if (showProducts) {
-    showProducts.addEventListener("click", function () {
+  if (showProductsBtn) {
+    showProductsBtn.addEventListener("click", function () {
       if (cardsGrid.style.display === "none") {
         cardsGrid.style.display = "grid";
         getAllProducts();
-        showProducts.textContent = "Ocultar Productos";
+        showProductsBtn.textContent = "Ocultar Productos";
       } else {
         cardsGrid.style.display = "none";
-        showProducts.textContent = "Mostrar Productos";
+        showProductsBtn.textContent = "Mostrar Productos";
       }
     });
   }
 
-  if (carShop) {
-    carShop.addEventListener("click", function () {
+  if (carShopBtn) {
+    carShopBtn.addEventListener("click", function () {
       window.location.href = "carrito.html";
     });
   }
@@ -178,7 +178,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
       localStorage.setItem("registroUsuario", JSON.stringify(datosUsuario));
       saludo.textContent = `Bienvenido a nuesta pagina!`;
-      texoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
+      textoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
       inputOff();
       //sweet
       Swal.fire({
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", function () {
     seeProducts(nombreGuardado);
     const usuarioRecuperado = JSON.parse(nombreGuardado);
     saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
-    texoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
+    textoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
     inputOff();
   } else {
     inputOn();
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
     botonEliminar.addEventListener("click", function () {
       localStorage.removeItem("registroUsuario");
       saludo.textContent = `Bienvenido!`;
-      texoInicio.textContent = `Porfavor registrese!`;
+      textoInicio.textContent = `Porfavor registrese!`;
       inputOn();
 
       //sweet

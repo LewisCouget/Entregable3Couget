@@ -1,17 +1,28 @@
 * {
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
   background-color: rgb(99, 99, 99);
 }
 
+.mainContainer {
+  padding: 2rem;
+}
+
 #saludo {
-  color: rgb(124, 168, 207);
+  color: rgb(0, 81, 151);
+}
+
+#botonEliminar {
+  background-color: rgb(255, 45, 45);
+  color: #ffffff;
+}
+
+form label {
+  padding: 0.5rem;
 }
 
 #cardsGrid {
@@ -24,13 +35,33 @@ body {
   background-color: rgb(39, 39, 39);
 }
 
+#registroUsuario button {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.cardsContainer button {
+  background-color: rgb(48, 48, 255);
+  color: aliceblue;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.container-fluid {
+  background-color: rgb(99, 99, 99);
+}
+
+.navbar-brand {
+  color: rgb(0, 81, 151);
+}
 .card {
   display: flex;
   flex-direction: column;
   padding: 1rem;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 2px 2px 8px rgba(255, 21, 21, 0.1);
+  border-radius: 12px;
+  box-shadow: 2px 2px 8px rgba(255, 0, 0, 0.616);
 }
 
 .card-img-top {
@@ -44,9 +75,13 @@ body {
   align-content: center;
 }
 
+#cardsGrid {
+  border-radius: 8px;
+}
+
 .botonCarrito {
   background-color: rgb(48, 48, 255);
   color: aliceblue;
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 4px;
 }

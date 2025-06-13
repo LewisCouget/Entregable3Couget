@@ -14,34 +14,35 @@
   </head>
   <body>
     <div id="navBarContainer" class="navBar"></div>
+    <div class="mainContainer">
+      <div id="container">
+        <div id="registroUsuario">
+          <h1 id="saludo">Bienvenido!</h1>
+          <p id="textoInicio">Porfavor registrese!</p>
+          <!--  action="carrito.html"  method="get"-->
+          <div id="inputsBotones">
+            <form>
+              <label> <input type="text" placeholder="Nombre" /></label><br />
+              <label> <input type="text" placeholder="Apellido" /></label><br />
+              <label> <input type="email" placeholder="E-mail" /></label><br />
+              <button id="botonGuardar" type="button">Registrarse</button>
+            </form>
+          </div>
 
-    <div id="container">
-      <div id="registroUsuario">
-        <h1 id="saludo">Bienvenido!</h1>
-        <p id="textoInicio">Porfavor registrese!</p>
-        <!--  action="carrito.html"  method="get"-->
-        <div id="inputsBotones">
-          <form>
-            <label> <input type="text" placeholder="Nombre" /></label><br />
-            <label> <input type="text" placeholder="Apellido" /></label><br />
-            <label> <input type="email" placeholder="E-mail" /></label><br />
-            <button id="botonGuardar" type="button">Registrarse</button>
-          </form>
+          <button id="botonEliminar" type="button" style="display: none">
+            Eliminar Registro
+          </button>
         </div>
 
-        <button id="botonEliminar" type="button" style="display: none">
-          Eliminar Registro
-        </button>
-      </div>
-
-      <div id="products" class="cardsContainer">
-        <button id="showProducts" type="button" style="display: none">
-          Mostrar Productos
-        </button>
-        <button id="carShop" type="button" style="display: none">
-          Ir al carrito
-        </button>
-        <div id="cardsGrid" style="display: block"></div>
+        <div id="products" class="cardsContainer">
+          <button id="showProductsBtn" type="button" style="display: none">
+            Mostrar Productos
+          </button>
+          <button id="carShopBtn" type="button" style="display: none">
+            Ir al carrito
+          </button>
+          <div id="cardsGrid" style="display: block"></div>
+        </div>
       </div>
     </div>
     <script
