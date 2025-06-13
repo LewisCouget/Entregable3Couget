@@ -1,3 +1,7 @@
+:root {
+  --Title: hsl(202, 100%, 43%);
+  --BodyBlack: rgb(58, 58, 58);
+}
 * {
   * {
     margin: 0;
@@ -7,5 +11,21 @@
 }
 
 body {
-  background-color: rgb(99, 99, 99);
+  background-color: var(--BodyBlack);
+}
+
+.tituloCarrito {
+  color: var(--Title);
+}
+
+.container-fluid {
+  background-color: var(--BodyBlack);
+}
+
+.navbar-brand {
+  color: var(--Title);
+}
+
+#compras h3 {
+  color: aliceblue;
 }

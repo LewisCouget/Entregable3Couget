@@ -45,6 +45,7 @@ function validarInputs(nombre, apellido, email) {
   }
   return true;
 }
+// Validar 🚀
 
 // Llamar a products.json🚀
 const productList = "../data/products.json";
@@ -76,9 +77,10 @@ function addProduct(data) {
     cardsContainer.innerHTML += cardHTML;
   });
 }
+//Añadir cartas🚀
 
-const carrito = [];
 // Agregar productos al carrito🚀
+const carrito = [];
 function agregarProductos(id) {
   const productoEnCatalogo = productos.find((producto) => producto.id === id);
 
@@ -94,49 +96,69 @@ function agregarProductos(id) {
 }
 // Agregar productos al carrito🚀
 
-function seeProducts(nombreGuardado) {
-  if (nombreGuardado) {
-    showProductsBtn.addEventListener("click", function () {
-      getAllProducts();
-    });
-  } else {
-    inputOn();
+//Añadir cartas🚀
+let isFirstRegistrationThisSession = false;
+function updateUI(uiState) {
+  const saludo = document.getElementById("saludo");
+  const textoInicio = document.getElementById("textoInicio");
+  const inputsBotones = document.getElementById("inputsBotones");
+  const botonEliminar = document.getElementById("botonEliminar");
+  const showProductsBtn = document.getElementById("showProductsBtn");
+  const carShopBtn = document.getElementById("carShopBtn");
+  const cardsGrid = document.getElementById("cardsGrid");
+
+  switch (uiState) {
+    case "registrado":
+      if (inputsBotones) inputsBotones.style.display = "none";
+      if (botonEliminar) botonEliminar.style.display = "block";
+      if (showProductsBtn) showProductsBtn.style.display = "block";
+      if (carShopBtn) carShopBtn.style.display = "block";
+      if (cardsGrid) cardsGrid.style.display = "none";
+
+      break;
+    case "noRegistrado":
+      if (inputsBotones) inputsBotones.style.display = "block";
+      if (botonEliminar) botonEliminar.style.display = "none";
+      if (showProductsBtn) showProductsBtn.style.display = "none";
+      if (carShopBtn) carShopBtn.style.display = "none";
+      if (cardsGrid) cardsGrid.style.display = "none";
+
+      saludo.textContent = `Bienvenido!`;
+      textoInicio.textContent = `Por favor, regístrate!`;
+      break;
   }
 }
-
-//Añadir cartas🚀
 
 document.addEventListener("DOMContentLoaded", function () {
   const saludo = document.getElementById("saludo");
   const textoInicio = document.getElementById("textoInicio");
-  const inputsBotones = document.getElementById("inputsBotones");
   const botonGuardar = document.getElementById("botonGuardar");
   const botonEliminar = document.getElementById("botonEliminar");
-  const showProductsBtn = document.getElementById("showProductsBtn");
-  const carShopBtn = document.getElementById("carShopBtn");
+
   const nombreInput = document.querySelector('input[placeholder="Nombre"]');
   const apellidoInput = document.querySelector('input[placeholder="Apellido"]');
   const emailInput = document.querySelector('input[placeholder="E-mail"]');
-  const cardsGrid = document.getElementById("cardsGrid");
 
   navBar();
 
-  // Ocultar o mostrar inputs y botones🚀
-  function inputOff() {
-    if (inputsBotones) inputsBotones.style.display = "none";
-    if (botonEliminar) botonEliminar.style.display = "block";
-    if (showProductsBtn) showProductsBtn.style.display = "block";
-    if (carShopBtn) carShopBtn.style.display = "block";
-    if (cardsGrid) cardsGrid.style.display = "none";
-  }
+  // Recuperar el dato del usuario 🚀
 
-  function inputOn() {
-    if (inputsBotones) inputsBotones.style.display = "block";
-    if (botonEliminar) botonEliminar.style.display = "none";
-    if (showProductsBtn) showProductsBtn.style.display = "none";
-    if (carShopBtn) carShopBtn.style.display = "none";
-    if (cardsGrid) cardsGrid.style.display = "none";
+  const showProductsBtn = document.getElementById("showProductsBtn");
+  const carShopBtn = document.getElementById("carShopBtn");
+  const cardsGrid = document.getElementById("cardsGrid");
+
+  const nombreGuardado = localStorage.getItem("registroUsuario");
+  if (nombreGuardado) {
+    updateUI("registrado");
+    const usuarioRecuperado = JSON.parse(nombreGuardado);
+    saludo.textContent = `¡Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
+    textoInicio.textContent = `¡Gracias por volver a nuestra página! 😊`;
+    isFirstRegistrationThisSession = false;
+  } else {
+    updateUI("noRegistrado");
+    isFirstRegistrationThisSession = true;
   }
+  // Recuperar el dato del usuario 🚀
 
   if (showProductsBtn) {
     showProductsBtn.addEventListener("click", function () {
@@ -156,7 +178,6 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = "carrito.html";
     });
   }
-  // Ocultar o mostrar inputs y botones🚀
 
   // Guardar Datos Del Usuario🚀
   if (botonGuardar) {
@@ -168,7 +189,6 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!validarInputs(nombre, apellido, email)) {
         return;
       }
-      inputOff();
 
       const datosUsuario = {
         nombre: nombre,
@@ -177,9 +197,13 @@ document.addEventListener("DOMContentLoaded", function () {
       };
 
       localStorage.setItem("registroUsuario", JSON.stringify(datosUsuario));
-      saludo.textContent = `Bienvenido a nuesta pagina!`;
-      textoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
-      inputOff();
+
+      if (isFirstRegistrationThisSession) {
+        saludo.textContent = `Bienvenido a nuesta pagina!`;
+        textoInicio.textContent = `Gracias por registrarse ${nombre} ${apellido}!`;
+        isFirstRegistrationThisSession = false;
+      }
+      updateUI("registrado");
       //sweet
       Swal.fire({
         icon: "success",
@@ -192,7 +216,6 @@ document.addEventListener("DOMContentLoaded", function () {
         timerProgressBar: true,
       });
 
-      // Para Limpiar los inputs
       nombreInput.value = "";
       apellidoInput.value = "";
       emailInput.value = "";
@@ -200,27 +223,12 @@ document.addEventListener("DOMContentLoaded", function () {
   }
   // Guardar Datos Del Usuario🚀
 
-  // Recuperar el dato del usuario 🚀
-  const nombreGuardado = localStorage.getItem("registroUsuario");
-
-  if (nombreGuardado) {
-    seeProducts(nombreGuardado);
-    const usuarioRecuperado = JSON.parse(nombreGuardado);
-    saludo.textContent = `Hola! ${usuarioRecuperado.nombre} ${usuarioRecuperado.apellido}!`;
-    textoInicio.textContent = `Gracias por volver a nuestra pagina! 😊`;
-    inputOff();
-  } else {
-    inputOn();
-  }
-  // Recuperar el dato del usuario 🚀
-
   // Eliminar Datos Del Usuario 🚀
   if (botonEliminar) {
     botonEliminar.addEventListener("click", function () {
       localStorage.removeItem("registroUsuario");
-      saludo.textContent = `Bienvenido!`;
-      textoInicio.textContent = `Porfavor registrese!`;
-      inputOn();
+      updateUI("noRegistrado");
+      isFirstRegistrationThisSession = true;
 
       //sweet
       Swal.fire({

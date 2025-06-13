@@ -1,3 +1,8 @@
+:root {
+  --Title: hsl(202, 100%, 43%);
+  --BodyBlack: rgb(58, 58, 58);
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +10,7 @@
 }
 
 body {
-  background-color: rgb(99, 99, 99);
+  background-color: var(--BodyBlack);
 }
 
 .mainContainer {
@@ -13,7 +18,7 @@ body {
 }
 
 #saludo {
-  color: rgb(0, 81, 151);
+  color: var(--Title);
 }
 
 #botonEliminar {
@@ -32,7 +37,7 @@ form label {
   padding: 1rem;
   max-width: 1900px;
   margin: 0 auto;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(24, 24, 24);
 }
 
 #registroUsuario button {
@@ -41,19 +46,31 @@ form label {
   border-radius: 8px;
 }
 
+#botonGuardar {
+  background-color: var(--Title);
+  color: #ffffff;
+}
+
+#textoInicio {
+  color: #ffffff;
+}
+
 .cardsContainer button {
-  background-color: rgb(48, 48, 255);
+  background-color: var(--Title);
   color: aliceblue;
   padding: 0.5rem;
   border-radius: 4px;
 }
 
 .container-fluid {
-  background-color: rgb(99, 99, 99);
+  background-color: var(--BodyBlack);
 }
 
 .navbar-brand {
-  color: rgb(0, 81, 151);
+  color: var(--Title);
+}
+.card:hover {
+  transform: scale(1.02);
 }
 .card {
   display: flex;
@@ -80,7 +97,7 @@ form label {
 }
 
 .botonCarrito {
-  background-color: rgb(48, 48, 255);
+  background-color: var(--Title);
   color: aliceblue;
   padding: 0.5rem;
   border-radius: 4px;
