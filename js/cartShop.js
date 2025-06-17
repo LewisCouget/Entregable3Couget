@@ -94,8 +94,24 @@ document.addEventListener("DOMContentLoaded", function () {
   const checkoutBtn = document.getElementById("checkout-btn");
 
   if (clearCartBtn) {
-    clearCartBtn.addEventListener("click", clearCart);
+    clearCartBtn.addEventListener("click", function () {
+      if (carrito.length === 0) {
+        Swal.fire({
+          icon: "warning",
+          title: "Carrito Vacío",
+          text: "Porfavor agregue productos!.",
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 2000,
+          timerProgressBar: true,
+        });
+      } else {
+        clearCart();
+      }
+    });
   }
+
   if (checkoutBtn) {
     checkoutBtn.addEventListener("click", function () {
       if (carrito.length === 0) {
@@ -117,7 +133,8 @@ document.addEventListener("DOMContentLoaded", function () {
           showConfirmButton: false,
           timer: 2500,
         }).then(() => {
-          clearCart();
+          localStorage.removeItem("ListaCarrito");
+          carrito = [];
           window.location.href = "index.html";
         });
       }
